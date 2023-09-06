@@ -44,4 +44,22 @@ function Hozzaad()
         hazas: document.getElementById("hazas").checked
     }
     emberek.push(obj);
+    TablazatKirajzol();
 }
+
+function TablazatKirajzol()
+{
+    var s = "<table><tr><th>Név</th><th>Kor</th><th>Magasság</th><th>Házas</th></tr>";
+
+    for (var i=0; i<emberek.length; i++)
+    {
+        s += "<tr><td>"+emberek[i].nev+"</td><td>"+emberek[i].eletkor+"</td><td>"+emberek[i].magassag+"</td><td>";
+        if (emberek[i].hazas) s+="Igen</td></tr>";
+        else s+="Nem</td></tr>";
+    }
+
+    s += "</table>";
+    document.getElementById("tablazat").innerHTML = s;
+}
+
+TablazatKirajzol();
